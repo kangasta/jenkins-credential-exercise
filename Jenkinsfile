@@ -13,4 +13,9 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            robot outputPath: 'robot_output', onlyCritical: false, passThreshold: 100.0, unstableThreshold: 0.0
+        }
+    }
 }
