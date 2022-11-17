@@ -9,7 +9,7 @@ pipeline {
         stage("Test") {
             agent { dockerfile { reuseNode true } }
             steps {
-                sh "robot -d robot_output --nostatusrc ."
+                sh "robot -N '${env.JOB_BASE_NAME} ${BUILD_DISPLAY_NAME}' -d robot_output --nostatusrc ."
             }
         }
     }
